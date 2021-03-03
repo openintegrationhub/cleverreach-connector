@@ -2,7 +2,7 @@
 //
 // const nock = require('nock');
 // const { expect } = require('chai');
-// const { getEntries } = require('../lib/utils/helpers');
+// const { getReceivers } = require('../lib/utils/helpers');
 // const {
 //   getReceiversSuccessful, getReceiversEmpty, getOrganizationsSuccessful, getOrganizationsEmpty,
 // } = require('./seed/triggers.seed');
@@ -20,7 +20,7 @@
 //     const snapshot = {
 //       lastUpdated: (new Date(0)).getTime(),
 //     };
-//     const Receivers = await getEntries(token, snapshot, 'Receiver');
+//     const Receivers = await getReceivers(token, snapshot, 'Receiver');
 //
 //     expect(Receivers.result).to.not.be.empty;
 //     expect(Receivers.result).to.be.a('array');
@@ -39,7 +39,7 @@
 //     const snapshot = {
 //       lastUpdated: 0,
 //     };
-//     const Receivers = await getEntries(token, snapshot, 'Receiver');
+//     const Receivers = await getReceivers(token, snapshot, 'Receiver');
 //     expect(Receivers).to.equal('Expected records array.');
 //   });
 //
@@ -47,7 +47,7 @@
 //     const snapshot = {
 //       lastUpdated: (new Date(0)).getTime(),
 //     };
-//     const organizations = await getEntries(token, snapshot, 'organization');
+//     const organizations = await getReceivers(token, snapshot, 'organization');
 //     expect(organizations.result).to.not.be.empty;
 //     expect(organizations.result).to.be.a('array');
 //     expect(organizations.result).to.have.length(2);
@@ -74,7 +74,7 @@
 //     const snapshot = {
 //       lastUpdated: 0,
 //     };
-//     const organizations = await getEntries(token, snapshot, 'organization');
+//     const organizations = await getReceivers(token, snapshot, 'organization');
 //     expect(organizations).to.equal('Expected records array.');
 //   });
 //
@@ -240,7 +240,7 @@
 //     const snapshot = {
 //       lastUpdated: (new Date(0)).getTime(),
 //     };
-//     const Receivers = await getEntries('someToken', snapshot, 'Receiver', false, 'John');
+//     const Receivers = await getReceivers('someToken', snapshot, 'Receiver', false, 'John');
 //
 //     expect(Receivers.result).to.have.lengthOf(2);
 //     expect(Receivers.result[0].firstName).to.equal('John');
@@ -415,7 +415,7 @@
 //     const snapshot = {
 //       lastUpdated: (new Date(0)).getTime(),
 //     };
-//     const Receivers = await getEntries('someToken', snapshot, 'organization', false, 'John');
+//     const Receivers = await getReceivers('someToken', snapshot, 'organization', false, 'John');
 //
 //     expect(Receivers.result).to.have.lengthOf(1);
 //     expect(Receivers.result[0].name).to.equal('John Corp');
