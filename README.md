@@ -30,8 +30,6 @@ The **connector** supports the following **actions** and **triggers**:
 #### Actions:
   - Upsert Receiver (```upsertReceiver.js```)
 
-In each trigger and action, before sending a request we get the token from [CleverReach](https://snazzycontacts.com) via calling the function ```getToken()``` from ```snazzy.js``` file, which is located in directory **utils**. This function returns a token which is used when we send a request to
-[CleverReach](https://snazzycontacts.com).
 
 ##### Get Receivers
 
