@@ -6,7 +6,7 @@ With this **connector** you are able to create different application flows. It s
 
 ## Usage
 
-1. Create Oauth2 Client in your CleverReach Account
+1. Create Oauth2 App in your CleverReach Account (My account > Extras > Rest API)
 2. Set redirect uri to https://app.yourservice.com/callback/oauth2
 3. Set register secret in secret service
 4. Add secret to flow step
