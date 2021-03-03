@@ -1,0 +1,74 @@
+{
+  "title": "CleverReach",
+  "description": "CleverReach OIH Connector",
+  "docsUrl": "https://github.com/openintegrationhub/cleverreach-connector",
+  "buildType": "docker",
+  "credentials": {
+    "fields": {
+      "client_id": {
+        "label": "ClientId",
+        "required": true,
+        "viewClass": "TextFieldView",
+        "note": "Use the ClientId of your Oauth2 integration in CleverReach",
+        "placeholder": "youremail@mail.com"
+      },
+      "client_secret": {
+        "label": "Client Oauth2 secret",
+        "required": true,
+        "viewClass": "PasswordFieldView",
+        "note": "Use the Secret of your Oauth2 integration in CleverReach"
+      },
+      "applicationUid": {
+        "label": "Application uid",
+        "required": false,
+        "viewClass": "TextFieldView",
+        "note": "Application uid",
+        "placeholder": "application123456"
+      },
+      "schema": {
+        "label": "Schema",
+        "required": false,
+        "viewClass": "TextFieldView",
+        "note": "Schema from Meta Data Repository",
+        "placeholder": "address"
+      },
+      "domainId": {
+        "label": "Domain Id",
+        "required": false,
+        "viewClass": "TextFieldView",
+        "note": "Domain Id from Meta Data Repository",
+        "placeholder": "5d3031a20cbe7c00115c7d8f"
+      }
+    }
+  },
+  "triggers": {
+    "getReceiversPolling": {
+      "title": "Fetch new and updated Receivers (getReceivers - Polling)",
+      "description": "Get Receivers from CleverReach which have recently been modified or created",
+      "type": "polling",
+      "main": "./lib/triggers/getReceiversPolling.js",
+      "metadata": {
+        "out": "./lib/schemas/getReceivers.out.json"
+      }
+    },
+    "getReceiversByGroupIdPolling": {
+      "title": "Fetch new and updated Receivers with the provided GroupId (getReceiversByGroupId- Polling)",
+      "description": "Get CleverReach organizations which have recently been modified or created",
+      "type": "polling",
+      "main": "./lib/triggers/getReceiversByGroupIdPolling.js",
+      "metadata": {
+        "out": "./lib/schemas/getReceiversByGroupId.out.json"
+      }
+    }
+  },
+  "actions": {
+    "upsertReceiver": {
+      "title": "Upsert a Receiver in CleverReach",
+      "main": "./lib/actions/upsertReceiver.js",
+      "metadata": {
+        "in": "./lib/schemas/upsertReceiver.in.json",
+        "out": "./lib/schemas/upsertReceiver.out.json"
+      }
+    }
+  }
+}
