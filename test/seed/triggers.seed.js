@@ -13,7 +13,7 @@ const getGroupsSuccessful = nock(`${url}/groups.json`)
 
 
 const getReceiversSuccessful = nock(`${url}/groups.json/${groups[0].id}/receivers`)
-  .get('?pagesize=5000&type=all')
+  .get('?page=0&pagesize=5000&type=all&detail=2&order_by=registered%20DESC')
   .reply(200, [
     {
       id: '007',
@@ -52,7 +52,7 @@ const getReceiversSuccessful = nock(`${url}/groups.json/${groups[0].id}/receiver
   ]);
 
 const getReceiversByGroupIdSuccessful = nock(`${url}/groups.json/${groups[0].id}/receivers`)
-  .get('?pagesize=5000&type=all')
+  .get('?page=0&pagesize=5000&type=all&detail=2&order_by=registered%20DESC')
   .reply(200, [
     {
       id: '007',
