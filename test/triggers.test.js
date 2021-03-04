@@ -2,15 +2,15 @@
 
 // const nock = require('nock');
 const { expect } = require('chai');
-const { getReceivers } = require('../lib/utils/helpers');
+const { getReceivers, getReceiversByGroupId } = require('../lib/utils/helpers');
 const {
   getGroupsSuccessful,
   getReceiversSuccessful,
-  getReceiversEmpty,
+  getReceiversByGroupIdSuccessful,
+  getReceiversByGroupIdEmpty,
 } = require('./seed/triggers.seed');
 
 describe('Triggers - getReceivers & getReceiversByGroupId', () => {
-  let token;
   const cfg = {
     accessToken: 'TOKEN',
   };
@@ -18,10 +18,11 @@ describe('Triggers - getReceivers & getReceiversByGroupId', () => {
   before(async () => {
     getGroupsSuccessful;
     getReceiversSuccessful;
-    getReceiversEmpty;
+    getReceiversByGroupIdSuccessful;
+    getReceiversByGroupIdEmpty;
   });
 
-  it.only('should get all Receivers', async () => {
+  it('should get all Receivers', async () => {
     const snapshot = {
       lastUpdated: (new Date(0)).getTime(),
     };
@@ -30,16 +31,43 @@ describe('Triggers - getReceivers & getReceiversByGroupId', () => {
     expect(receivers).to.not.be.empty;
     expect(receivers).to.be.an('array');
     expect(receivers).to.have.length(1);
-    expect(receivers.email).to.equal('a@b.de');
-    expect(receivers.attributes).to.exist;
-    expect(receivers.attributes).to.be.a('object');
+    expect(receivers[0].email).to.equal('a@b.de');
+    expect(receivers[0].attributes).to.exist;
+    expect(receivers[0].attributes).to.be.a('object');
+    expect(receivers[0].attributes.firstname).to.equal('Stefan');
+    expect(receivers[0].global_attributes).to.exist;
+    expect(receivers[0].global_attributes).to.be.a('object');
+    expect(receivers[0].global_attributes.name).to.equal('Meyer');
   });
 
-  it('should throw an exception if no Receivers were found', async () => {
+  it('should get all Receivers of provided group', async () => {
     const snapshot = {
       lastUpdated: 0,
     };
-    const Receivers = await getReceivers(token, snapshot, 'Receiver');
-    expect(Receivers).to.equal('Expected records array.');
+
+    cfg.groupId = 1;
+    const receivers = await getReceiversByGroupId(cfg, snapshot);
+
+    expect(receivers).to.not.be.empty;
+    expect(receivers).to.be.an('array');
+    expect(receivers).to.have.length(1);
+    expect(receivers[0].email).to.equal('a@b.de');
+    expect(receivers[0].attributes).to.exist;
+    expect(receivers[0].attributes).to.be.a('object');
+    expect(receivers[0].attributes.firstname).to.equal('Stefan');
+    expect(receivers[0].global_attributes).to.exist;
+    expect(receivers[0].global_attributes).to.be.a('object');
+    expect(receivers[0].global_attributes.name).to.equal('Meyer');
+  });
+
+  it('should return an empty array if no Receivers were found in group', async () => {
+    const snapshot = {
+      lastUpdated: 0,
+    };
+
+    cfg.groupId = 0;
+    const receivers = await getReceiversByGroupId(cfg, snapshot);
+    expect(receivers).to.be.an('array');
+    expect(receivers).to.have.lengthOf(0);
   });
 });
