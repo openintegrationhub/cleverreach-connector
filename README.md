@@ -43,7 +43,9 @@ The groupId has to be set in the step data as a field. Alternatively the groupNa
 
 ##### Upsert Receiver
 
-Upsert Receiver action (``upsertReceiver.js``) updates an existing reciver if it already exists. Otherwise it creates a new one.
+Upsert Receiver action (``upsertReceiver.js``) updates an existing receiver if it already exists. Otherwise it creates a new one.
+
+The groupId has to be set in the step data as a field. If the groupId is not set then the endpoint will try to match the categories of then entry to an existing receiver group.
 
 ## Integrated Transformations
 
