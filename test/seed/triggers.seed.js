@@ -91,7 +91,7 @@ const getReceiversByGroupIdSuccessful = nock(`${url}/groups.json/${groups[0].id}
   ]);
 
 const getReceiversByGroupIdEmpty = nock(`${url}/groups.json/0/receivers`)
-  .get('?pagesize=5000&type=all')
+  .get('?page=0&pagesize=5000&type=all&detail=2&order_by=registered%20DESC')
   .reply(204, []);
 
 
