@@ -44,10 +44,8 @@ const personMessage = {
       },
     ],
     categories: [
-      {
-        uid: '25mop1jxq2pp3e',
-        label: 'Customer',
-      },
+      'Customer',
+      'Just the best',
     ],
     relations: [],
     __v: 0,
@@ -74,6 +72,7 @@ const receiverMessage = {
     last_client: '',
     points: 0,
     stars: 0,
+    tags: ['Customer'],
     source: 'User Import',
     attributes: {
       firstname: 'Stefan',

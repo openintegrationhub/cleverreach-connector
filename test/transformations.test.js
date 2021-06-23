@@ -35,6 +35,10 @@ describe('Transformations - personFromOih', () => {
     expect(receiver.data.global_attributes.firstname).to.equal('Mark');
     expect(receiver.data.global_attributes.name).to.equal('Smith');
     expect(receiver.data.global_attributes.phone).to.equal('123456');
+
+    expect(receiver.data.tags).to.be.an('array');
+    expect(receiver.data.tags.length).to.equal(2);
+    expect(receiver.data.tags).to.deep.equal(['Customer', 'Just the best']);
   });
 });
 
@@ -59,5 +63,9 @@ describe('Transformations - personToOih', () => {
     expect(person.data.contactData[0].value).to.equal('a@b.de');
     expect(person.data.contactData[1].type).to.equal('phone');
     expect(person.data.contactData[1].value).to.equal('123456');
+
+    expect(person.data.categories).to.be.an('array');
+    expect(person.data.categories.length).to.equal(1);
+    expect(person.data.categories).to.deep.equal(['Customer']);
   });
 });
