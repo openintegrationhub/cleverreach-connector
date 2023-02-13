@@ -48,6 +48,7 @@
       "type": "polling",
       "main": "./lib/triggers/getReceiversPolling.js",
       "metadata": {
+        "in": "./lib/schemas/getReceivers.in.json",
         "out": "./lib/schemas/getReceivers.out.json"
       }
     },
@@ -57,6 +58,7 @@
       "type": "polling",
       "main": "./lib/triggers/getReceiversByGroupIdPolling.js",
       "metadata": {
+        "in": "./lib/schemas/getReceiversByGroupId.in.json",
         "out": "./lib/schemas/getReceiversByGroupId.out.json"
       }
     }

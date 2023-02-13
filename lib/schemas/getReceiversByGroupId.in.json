@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+      "groupId": {
+        "required": true,
+        "type": "string",
+      },
+    }
+}

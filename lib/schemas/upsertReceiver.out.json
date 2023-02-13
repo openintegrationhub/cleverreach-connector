@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "required": [
+        "id"
+    ],
+    "properties": {
+        "id": {
+            "type": "integer",
+            "description": "ID of the created or updated receiver",
+            "example": 5
+        },
+    }
+}

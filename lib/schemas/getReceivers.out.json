@@ -1,0 +1,98 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "email": {
+          "type": "string",
+          "description": "Receivers e-mail address",
+          "example": "some@one.com"
+      },
+      "tags": {
+          "type": "string",
+          "description": "Category of the receiver",
+          "example": "Newsletter"
+      },
+      "attributes": {
+        "type": "object",
+        "properties": {
+          "firstname":  {
+              "type": "string",
+              "description": "Firstname of the receiver",
+              "example": "Joe"
+          },
+          "name": {
+              "type": "string",
+              "description": "Fullname of the receiver",
+              "example": "Joe Doe"
+          },
+          "lastname":  {
+              "type": "string",
+              "description": "Lastname of the receiver",
+              "example": "Doe"
+          },
+          "vorname":  {
+              "type": "string",
+              "description": "Firstname of the receiver",
+              "example": "Joe"
+          },
+          "nachname":  {
+              "type": "string",
+              "description": "Lastname of the receiver",
+              "example": "Doe"
+          },
+          "salutation":  {
+              "type": "string",
+              "description": "Salutation of the receiver",
+              "example": "Mr."
+          },
+          "phone": {
+              "type": "string",
+              "description": "Phone number of the receiver",
+              "example": "0123456"
+          }
+        }
+      },
+      "global_attributes": {
+        "type": "object",
+        "properties": {
+          "firstname":  {
+              "type": "string",
+              "description": "Firstname of the receiver",
+              "example": "John"
+          },
+          "name":  {
+              "type": "string",
+              "description": "Fullname of the receiver",
+              "example": "John Doe"
+          },
+          "lastname":  {
+              "type": "string",
+              "description": "Lastname of the receiver",
+              "example": "Doe"
+          },
+          "vorname":  {
+              "type": "string",
+              "description": "Firstname of the receiver",
+              "example": "John"
+          },
+          "nachname":  {
+              "type": "string",
+              "description": "Lastname of the receiver",
+              "example": "Doe"
+          },
+          "salutation":  {
+              "type": "string",
+              "description": "Salutation of the receiver",
+              "example": "Mr."
+          },
+          "phone":  {
+              "type": "string",
+              "description": "Phone number of the receiver",
+              "example": "0123456"
+          }
+        }
+      }
+    }
+  }
+}
